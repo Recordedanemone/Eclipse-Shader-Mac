@@ -196,7 +196,9 @@ float encodeVec2(float x,float y){
 #endif
 
 
+#undef diagonal3
 #define diagonal3(m) vec3((m)[0].x, (m)[1].y, m[2].z)
+#undef projMAD
 #define  projMAD(m, v) (diagonal3(m) * (v) + (m)[3].xyz)
 
 vec3 toScreenSpace(vec3 p) {

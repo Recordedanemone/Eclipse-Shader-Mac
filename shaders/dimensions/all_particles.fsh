@@ -58,7 +58,7 @@ uniform sampler2D noisetex;
 uniform sampler2D colortex4;
 
 #if defined IS_LPV_ENABLED || defined PHOTONICS && defined PHOTONICS && !defined PH_ENABLE_HANDHELD_LIGHT
-	uniform usampler1D texBlockData;
+	uniform usampler2D texBlockData;
 	uniform sampler3D texLpv1;
 	uniform sampler3D texLpv2;
 #endif
@@ -268,7 +268,9 @@ uniform sampler2D specular;
 	vec2 dcdx = dFdx(texcoord.st*texcoordam.pq);
 	vec2 dcdy = dFdy(texcoord.st*texcoordam.pq);
 	
+	#undef diagonal3
 	#define diagonal3(m) vec3((m)[0].x, (m)[1].y, m[2].z)
+	#undef projMAD
 	#define  projMAD(m, v) (diagonal3(m) * (v) + (m)[3].xyz)
 
 	const float mincoord = 1.0/4096.0;

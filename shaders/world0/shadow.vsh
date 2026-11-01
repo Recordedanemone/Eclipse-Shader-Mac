@@ -146,7 +146,9 @@ bool intersectCone(float coneHalfAngle, vec3 coneTip , vec3 coneAxis, vec3 rayOr
 
   return true;
 }
+#undef diagonal3
 #define diagonal3(m) vec3((m)[0].x, (m)[1].y, m[2].z)
+#undef projMAD
 #define  projMAD(m, v) (diagonal3(m) * (v) + (m)[3].xyz)
 
 

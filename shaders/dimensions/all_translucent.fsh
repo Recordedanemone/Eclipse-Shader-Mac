@@ -98,7 +98,7 @@ uniform sampler2D specular;
 uniform sampler2D normals;
 
 #ifdef IS_LPV_ENABLED
-	uniform usampler1D texBlockData;
+	uniform usampler2D texBlockData;
 	uniform sampler3D texLpv1;
 	uniform sampler3D texLpv2;
 #endif

@@ -6,7 +6,7 @@
 */
 
 #ifdef RENDER_SETUP
-    layout(rg32ui) uniform writeonly uimage1D imgBlockData;
+    layout(rg32ui) uniform writeonly uimage2D imgBlockData;
 #else
-    layout(rg32ui) uniform readonly uimage1D imgBlockData;
+    layout(rg32ui) uniform readonly uimage2D imgBlockData;
 #endif

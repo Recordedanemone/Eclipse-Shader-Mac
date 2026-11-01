@@ -84,7 +84,9 @@ uniform float sunElevation;
 
 #include "/lib/res_params.glsl"
 
+#undef diagonal3
 #define diagonal3(m) vec3((m)[0].x, (m)[1].y, m[2].z)
+#undef projMAD
 #define  projMAD(m, v) (diagonal3(m) * (v) + (m)[3].xyz)
 vec3 toScreenSpace(vec3 p) {
 	vec4 iProjDiag = vec4(gbufferProjectionInverse[0].x, gbufferProjectionInverse[1].y, gbufferProjectionInverse[2].zw);
@@ -365,7 +367,7 @@ vec4 calculateFlashlightData(in vec3 viewPos, bool hand){
   vec3 GetHandLight(const in int itemId, const in vec3 playerPos, inout float lightRange) {
       vec3 lightFinal = vec3(0.0);
 
-      uint blockData = imageLoad(imgBlockData, itemId).r;
+      uint blockData = imageLoad(imgBlockData, ivec2(itemId, 0)).r;
       vec4 lightColorRange = unpackUnorm4x8(blockData);
       lightRange = lightColorRange.a * 255.0;
 

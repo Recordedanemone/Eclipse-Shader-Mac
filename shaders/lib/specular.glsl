@@ -413,7 +413,7 @@ float ComputeVoxelShadowMap(inout vec3 directLightColor, vec3 playerPos, float m
 			translucentTint += mix(translucentShadow.rgb, vec3(1.0),  opaqueShadow*shadowDepthDiff);
 
 		#else
-			shadowmap += texture(shadowtex0HW, projectedShadowPosition.xy).x;
+			shadowmap += texture(shadowtex0HW, projectedShadowPosition).x;
 		#endif
 
 	#ifdef BASIC_SHADOW_FILTER

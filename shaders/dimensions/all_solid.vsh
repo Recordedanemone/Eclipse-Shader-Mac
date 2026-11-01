@@ -123,7 +123,7 @@ uniform vec2 texelSize;
 //#endif
 
 #if !defined ENTITIES && !defined HAND && defined SHADER_GRASS && (defined GRASS_DETECT_FALLOFF || defined GRASS_DETECT_INV_FALLOFF || REPLACE_SHORT_GRASS > 0)
-	uniform usampler1D texBlockData;
+	uniform usampler2D texBlockData;
 	#include "/lib/lpv_common.glsl"
 	#include "/lib/lpv_blocks.glsl"
 	#include "/lib/lpv_buffer.glsl"
@@ -138,7 +138,9 @@ uniform vec2 texelSize;
 #endif
 
 							
+#undef diagonal3
 #define diagonal3(m) vec3((m)[0].x, (m)[1].y, m[2].z)
+#undef projMAD
 #define  projMAD(m, v) (diagonal3(m) * (v) + (m)[3].xyz)
 vec4 toClipSpace3(vec3 viewSpacePosition) {
     return vec4(projMAD(gl_ProjectionMatrix, viewSpacePosition),-viewSpacePosition.z);

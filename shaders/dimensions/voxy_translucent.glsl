@@ -54,7 +54,9 @@ float GGX(vec3 n, vec3 v, vec3 l, float r, float f0) {
   return dotNL * D * F / (dotLH*dotLH*(1.0-k2)+k2);
 }
 
+#undef diagonal3
 #define diagonal3(m) vec3((m)[0].x, (m)[1].y, m[2].z)
+#undef projMAD
 #define  projMAD(m, v) (diagonal3(m) * (v) + (m)[3].xyz)
 
 vec4 encode (vec3 n, vec2 lightmaps){

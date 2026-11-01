@@ -1217,6 +1217,6 @@ void main() {
         uint tintColorMask = packUnorm4x8(vec4(tintColor, 0.0));
         tintColorMask |= mixMask << 24;
 
-        imageStore(imgBlockData, blockId, uvec4(lightColorRange, tintColorMask, 0u, 0u));
+        imageStore(imgBlockData, ivec2(blockId, 0), uvec4(lightColorRange, tintColorMask, 0u, 0u));
     #endif
 }

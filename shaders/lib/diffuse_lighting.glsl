@@ -74,7 +74,7 @@
     vec3 GetHandLight(const in int itemId, const in vec3 playerPos, inout float lightRange) {
         vec3 lightFinal = vec3(0.0);
 
-        uint blockData = imageLoad(imgBlockData, itemId).r;
+        uint blockData = imageLoad(imgBlockData, ivec2(itemId, 0)).r;
         vec4 lightColorRange = unpackUnorm4x8(blockData);
         lightRange = lightColorRange.a * 255.0;
 

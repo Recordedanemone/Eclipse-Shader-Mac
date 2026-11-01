@@ -1352,6 +1352,11 @@ const vec3 aerochrome_color = mix(vec3(1.0, 0.0, 0.0), vec3(0.715, 0.303, 0.631)
 #endif
 
 
+// Vitrail (Vulkan via MoltenVK) reports itself as Iris on an Apple renderer, but with a GL version Apple's own driver never reaches
+#if defined MC_GL_RENDERER_APPLE && MC_GL_VERSION > 410
+	#define VITRAIL
+#endif
+
 // undefine every feature that won't work on mac
 #ifdef MC_OS_MAC
 #undef CUMULONIMBUS_LIGHTNING

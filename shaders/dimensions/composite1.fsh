@@ -134,7 +134,7 @@ in DATA {
 uniform float sunElevation;
 
 #if defined IS_LPV_ENABLED || defined PHOTONICS
-	uniform usampler1D texBlockData;
+	uniform usampler2D texBlockData;
 	uniform sampler3D texLpv1;
 	uniform sampler3D texLpv2;
 #endif

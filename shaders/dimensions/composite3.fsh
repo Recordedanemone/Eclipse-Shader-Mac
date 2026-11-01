@@ -78,7 +78,9 @@ uniform float caveDetection;
 
 // uniform int dhVoxyRenderDistance;
 #define DHVLFOG
+#undef diagonal3
 #define diagonal3(m) vec3((m)[0].x, (m)[1].y, m[2].z)
+#undef projMAD
 #define  projMAD(m, v) (diagonal3(m) * (v) + (m)[3].xyz)
 
 #include "/lib/color_transforms.glsl"
@@ -142,7 +144,7 @@ uniform sampler2D colortex4;
 	#extension GL_ARB_shader_image_load_store: enable
 	#extension GL_ARB_shading_language_packing: enable
 
-	uniform usampler1D texBlockData;
+	uniform usampler2D texBlockData;
 	uniform sampler3D texLpv1;
 	uniform sampler3D texLpv2;
 

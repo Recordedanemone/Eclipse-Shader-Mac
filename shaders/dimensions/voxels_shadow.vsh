@@ -36,7 +36,9 @@ out vec3 worldPos;
 out vec3 cageNormal;
 out vec3 color;
 
+#undef diagonal3
 #define diagonal3(m) vec3((m)[0].x, (m)[1].y, m[2].z)
+#undef projMAD
 #define  projMAD(m, v) (diagonal3(m) * (v) + (m)[3].xyz)
 
 vec4 toClipSpace3(vec3 viewSpacePosition) {

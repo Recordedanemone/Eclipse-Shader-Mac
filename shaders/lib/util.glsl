@@ -23,11 +23,16 @@ const float goldenAngle = TAU / PHI / PHI;
 #define fsign(x) (clamp01(x * 1e35) * 2.0 - 1.0)
 #define fstep(x,y) clamp01((y - x) * 1e35)
 
+#undef diagonal2
 #define diagonal2(m) vec2((m)[0].x, (m)[1].y)
+#undef diagonal3
 #define diagonal3(m) vec3(diagonal2(m), m[2].z)
+#undef diagonal4
 #define diagonal4(m) vec4(diagonal3(m), m[2].w)
 
+#undef transMAD
 #define transMAD(mat, v) (mat3(mat) * (v) + (mat)[3].xyz)
+#undef projMAD
 #define projMAD(mat, v) (diagonal3(mat) * (v) + (mat)[3].xyz)
 
 #define encodeColor(x) (x * 0.00005)
